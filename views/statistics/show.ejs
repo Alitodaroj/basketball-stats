@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+
+<table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Date</th>
+        <th>Points</th>
+        <th>Rebounds</th>
+        <th>Assists</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+        
+      </tr>
+    </tbody>
+  </table>
+
+<% if (user) { %>
+    <form id="add-statistics" method="POST" action="/basketball/<%= basketball._id %>/reviews">
+      <label>Review:</label>
+      <textarea name="content"></textarea>
+      <label>Rating:</label>
+      <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="submit" value="Update Statistics">
+    </form>
+  <!-- Add the line below -->
+  <% } %>
