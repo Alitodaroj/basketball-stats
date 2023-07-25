@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+  <ul>
+    <% teams.forEach(function(flight) { %>
+      <li>
+        <a href="/teams/new<%= teams.id %>">detail</a>
+          - 
+          <%= teams %>
+         
+      </li>
+    <% }); %>
+  </ul>
+  <form action="/teams" method="GET">
+      <input type="submit" value= "Add Team">  
+  </form>
+
+<%- include('../partials/footer') %>

@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('statistics/show', { title: 'Express' });
+  res.render('statistics/show', { title: 'Teams' });
 });
 
 // Google OAuth login route
@@ -12,9 +13,22 @@ router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?
   'google',
   {
-    successRedirect: '/basketball',
-    failureReirect: '/basketball'
+    scope: ['profile', 'email'],
   }
 ));
+
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }
+));
+
+router.get('/logout', function(req, res){
+  req.logout(function() {
+    res.redirect('/');
+  });
+})
 
 module.exports = router;

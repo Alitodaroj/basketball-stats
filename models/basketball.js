@@ -1,14 +1,12 @@
-const reviewSchema = new Schema({
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema
+
+const teamSchema = new Schema({
     content: {
       type: String,
       required: true
     },
-    rating: {
-      type: Number,
-      min: 1,
-      max: 5,
-      default: 5
-    },
+    
     // Don't forget to add the comma above then
     // add the 3 new properties below
     user: {
@@ -21,3 +19,5 @@ const reviewSchema = new Schema({
   }, {
     timestamps: true
   });
+
+  module.exports = mongoose.model('Teams', teamSchema);

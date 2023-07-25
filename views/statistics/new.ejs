@@ -1,9 +1,47 @@
 <%- include('../partials/header') %>
 
-
+<h2>Add Stats</h2>
+<form>
 <label>DATE:</label>
 <input type="date" name="DATE">
 <input type="submit" name="Submit">
+
+<label>Points</label>
+<input type="number" name="PTS">
+
+<label>Rebounds</label>
+<input type="number" name="REB">
+
+<label>Assists</label>
+<input type="number" name="AST"
+
+<%= if (user) { %>
+    <label>Points:</label>
+    <textarea name="content"></textarea>
+    <label>Rebounds:</label>
+    <textarea name="content"></textarea>
+    <label>Assists:</label>
+    <textarea name="content"></textarea>
+    </select>
+    <input type="submit" value="Update Statistics">
+}
 </form>
+
+
+<tr>
+  <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+  <td><%= r.createdAt.toLocaleDateString() %></td>
+  <td><%= r.player %></td>
+  <td>
+    <% if (user?._id.equals(r.user)) { %>
+      <form action="/player/<%= r._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
+      <% } %>  
+    </td>
+  </tr>
+  
+  %>
+
 
 <%- include('../partials.footer') %>
