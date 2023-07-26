@@ -1,8 +1,10 @@
-router.get('/', teamsCtrl.newTeam)
+const teamsCtrl = require('../controllers/teams')
 
-router.get('/new', ensureLoggedIn, teamsCtrl.newTeam);
+router.get('/', teamsCtrl.new)
+
+router.get('/new', ensureLoggedIn, teamsCtrl.new);
 router.get('/:id', teamsCtrl.show);
-router.post('/create', ensureLoggedIn, teamsCtrl.newTeam);
+router.post('/create', ensureLoggedIn, teamsCtrl.new);
 // router.get('/statistics/new', ensureLoggedIn, statisticsCtrl.new);
 
 

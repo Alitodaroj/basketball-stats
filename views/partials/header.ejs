@@ -14,7 +14,7 @@
   <% if (user) { %>
     <a href="players"	<%- title === 'Add Player' ? 'class="active"' : '' %>>
 		ADD PLAYER</a>
-    <a href="/statistics/new" <%- title === 'Add Team' ? 'class="active"' : '' %>>ADD TEAM</a>
+    <a href="/teams/new" <%- title === 'Add Team' ? 'class="active"' : '' %>>ADD TEAM</a>
     <a href="/logout">LOG OUT</a>
   <% } else { %>
     <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

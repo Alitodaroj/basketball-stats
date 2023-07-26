@@ -6,6 +6,22 @@
     </tr>
   </thead>
 
+  <h2>Add Stats</h2>
+<form>
+<label>DATE:</label>
+<input type="date" name="DATE">
+<input type="submit" name="Submit">
+
+<label>Points</label>
+<input type="number" name="PTS">
+
+<label>Rebounds</label>
+<input type="number" name="REB">
+
+<label>Assists</label>
+<input type="number" name="AST"
+
+
 <% if (user) { %>
       <label>Points:</label>
       <textarea name="content"></textarea>
@@ -15,6 +31,9 @@
       <textarea name="content"></textarea>
       </select>
       <input type="submit" value="Update Statistics">
-    </form>
-  <!-- Add the line below -->
-  <% } %>
+    <%}%>
+
+  </form>
+
+  <%- include('../partials/footer.ejs') %>
+  

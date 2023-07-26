@@ -1,5 +1,5 @@
-const basketball = require('mongoose');
-const Schema = basketball.Schema;
+const teams = require('mongoose');
+const Schema = teams.Schema;
 
 const userSchema = new Schema({
   name: String,
@@ -13,4 +13,4 @@ const userSchema = new Schema({
   timestamps: true
 });
 
-module.exports = basketball.model('User', userSchema);
+module.exports = teams.model('User', userSchema);

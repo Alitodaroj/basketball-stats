@@ -14,8 +14,7 @@ const teamSchema = new Schema({
       ref: 'User',
       required: true
     },
-    userName: String,
-    userAvatar: String
+    teamName: String
   }, {
     timestamps: true
   });

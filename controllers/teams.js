@@ -1,11 +1,11 @@
-const Team = require('../models/basketball');
+const Team = require('../models/teams');
 const teamsCtrl = require('../controllers/teams');
 
 async function show(req, res) {
     const team = await Team.findById(req.params.id);
-    res.render('partials/show', {title: 'List of Teams', team})
-    
+    res.render('statistics/index', {title: 'List of Teams', team})
   }
+
   async function create(req, res) {
       // remove any whitespace at start and end of cast
       req.body.cast = req.body.cast.trim();
@@ -13,7 +13,7 @@ async function show(req, res) {
       if (req.body.team) req.body.team = req.body.cast.split(/\s*,\s*/);
       try {
         await Team.create(req.body);
-        res.redirect('/statistics/new');
+        res.redirect('/statistics/index');
   } catch (err) {
     // Typically some sort of validation error
     console.log(err);
@@ -28,8 +28,10 @@ async function show(req, res) {
   
 
 function newTeam (req, res) {
-    res.render('statistics/new', { title: 'Add Teams', errorMsg: '' })
+    res.render('teams/new', { title: 'Add Teams', errorMsg: '' })
   }
+
+ 
 
 
   module.exports = {
