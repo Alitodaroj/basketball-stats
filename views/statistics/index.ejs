@@ -1,14 +1,25 @@
 <%- include('../partials/header') %>
 
   <ul>
-    <% teams.forEach(function(flight) { %>
+    <% teams.forEach(function(t) { %>
       <li>
-        <a href="/teams/new<%= teams.id %>">detail</a>
+        <a href="/teams/new<%= t.id %>">detail</a>
           - 
-          <%= teams %>
+          <%= t.content %>
          
       </li>
     <% }); %>
   </ul> 
+
+  <% if (user) { %>
+    <label>Points:</label>
+    <textarea name="content"></textarea>
+    <label>Rebounds:</label>
+    <textarea name="content"></textarea>
+    <label>Assists:</label>
+    <textarea name="content"></textarea>
+    </select>
+    <input type="submit" value="Update Statistics">
+  <%}%>
 
 <%- include('../partials/footer') %>

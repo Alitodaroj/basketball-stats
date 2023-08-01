@@ -7,19 +7,17 @@ async function show(req, res) {
   }
 
   async function create(req, res) {
-      // remove any whitespace at start and end of cast
-      req.body.cast = req.body.cast.trim();
-      // split cast into an array if it's not an empty string - using a regular expression as a separator
-      if (req.body.team) req.body.team = req.body.cast.split(/\s*,\s*/);
-      try {
+    req.body.user = req.user ;
+    console.log(req.body)
+    try {
         await Team.create(req.body);
-        res.redirect('/statistics/index');
-  } catch (err) {
-    // Typically some sort of validation error
-    console.log(err);
-    res.render('statistics/new', { errorMsg: err.message });
-  }
-  }
+        const successMessage = 'Team created successfully!';
+        res.redirect('/teams');
+      } catch (err) {
+        console.log(err);
+        res.render('statistics/show', { errorMsg: err.message });
+      }
+    }
 
   async function index(req, res) {
     const teams = await Team.find({});

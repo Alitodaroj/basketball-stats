@@ -9,7 +9,7 @@ router.get('/', teamsCtrl.index);
 
 router.get('/new', ensureLoggedIn, teamsCtrl.new);
 router.get('/:id', teamsCtrl.show);
-router.post('/create', ensureLoggedIn, teamsCtrl.new);
+router.post('/', ensureLoggedIn, teamsCtrl.create);
 // router.get('/statistics/new', ensureLoggedIn, statisticsCtrl.new);
 
 

@@ -5,35 +5,10 @@
       <th>Teams</th>
     </tr>
   </thead>
-
-  <h2>Add Stats</h2>
-<form>
-<label>DATE:</label>
-<input type="date" name="DATE">
-<input type="submit" name="Submit">
-
-<label>Points</label>
-<input type="number" name="PTS">
-
-<label>Rebounds</label>
-<input type="number" name="REB">
-
-<label>Assists</label>
-<input type="number" name="AST"
-
-
-<% if (user) { %>
-      <label>Points:</label>
-      <textarea name="content"></textarea>
-      <label>Rebounds:</label>
-      <textarea name="content"></textarea>
-      <label>Assists:</label>
-      <textarea name="content"></textarea>
-      </select>
-      <input type="submit" value="Update Statistics">
-    <%}%>
-
-  </form>
+  <form action="/teams" method="POST">
+    <input type="text" name="content">
+    <input type="submit" value= "Add Team">  
+</form>
 
   <%- include('../partials/footer.ejs') %>
   

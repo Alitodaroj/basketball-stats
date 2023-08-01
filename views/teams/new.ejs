@@ -1,9 +1,27 @@
 <%- include('../partials/header') %>
 
-    <form action="/teams" method="GET">
-        <input type="text" name="teamName">
+<% if (user) { %>    
+<form action="/teams" method="POST">
+        <input type="text" name="content">
         <input type="submit" value= "Add Team">  
     </form>
+    <%}%>
+
+    <h2>Add Stats</h2>
+<form>
+<label>DATE:</label>
+<input type="date" name="DATE">
+<input type="submit" name="Submit">
+
+<label>Points</label>
+<input type="number" name="PTS">
+
+<label>Rebounds</label>
+<input type="number" name="REB">
+
+<label>Assists</label>
+<input type="number" name="AST"
+
 
 
 <%- include('../partials/footer') %>
