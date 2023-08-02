@@ -3,7 +3,8 @@ const Players =  require('../models/players');
 
 module.exports = {
     newPlayer, 
-    create   
+    create,
+    delete: deletePlayers   
 }
 
 async function create(req, res) {
@@ -21,4 +22,17 @@ async function create(req, res) {
 
 async function newPlayer (req, res) {
     res.render('teams/new', {title: 'Added Players', errorMsg:''})
+}
+
+async function deletePlayers(req, res) {
+  try {
+await Players.deleteOne({
+  _id:req.params.id
+})
+res.redirect('/teams/new');
+}
+catch(e){
+console.log(e);
+res.redirect('/teams/new');
+}
 }

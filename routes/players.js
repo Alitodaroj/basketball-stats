@@ -6,4 +6,6 @@ const playersCtrl = require('../controllers/players');
 
 router.post('/', ensureLoggedIn, playersCtrl.create);
 
+router.delete('/:id', playersCtrl.delete)
+
 module.exports = router;

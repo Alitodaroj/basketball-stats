@@ -5,8 +5,9 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/teams');
+  res.redirect('/teams', {title: 'Home'});
 });
+
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(

@@ -15,9 +15,12 @@
         <li><%= t.points %> Points</li> 
         <li><%= t.rebounds %> Rebounds</li>
         <li><%= t.assists %> Assists</li>
-           
+        <form action="/players/<%= t._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
+        <% }); %>   
         
-      <% }); %>
+     
     </ul> 
 
     <h2>Add Stats</h2>
@@ -38,5 +41,7 @@
 <input type="submit" name="Submit">
 
 </form>
+
+
 
 <%- include('../partials/footer') %>
