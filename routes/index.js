@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport');
-
+const teamsCtrl = require('../controllers/teams')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/teams', {title: 'Home'});
+  res.redirect('/teams');
 });
 
 

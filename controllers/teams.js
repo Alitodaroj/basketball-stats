@@ -21,9 +21,15 @@ async function show(req, res) {
     }
 
   async function index(req, res) {
-    const teams = await Team.find({});
-    res.render('teams/index', { title: 'All Teams', teams });
+    try {
+      const players = await Player.find({}); 
+      res.render('teams/index', { title: 'All Teams', players});
+    } catch (err) {
+      console.error(err);
+      res.redirect('/'); 
+    }
   }
+
   
 
 async function newTeam (req, res) {
@@ -44,6 +50,16 @@ async function newTeam (req, res) {
     }
   }
 
+  async function editTeam(req, res) {
+    try {
+      const team = await Team.findById(req.params.id);
+      res.render('edit', { title: 'Edit Team', team });
+    } catch (err) {
+      console.error(err);
+      res.redirect('/'); // Redirect to homepage or an error page
+    }
+  }
+
  
 
 
@@ -52,5 +68,6 @@ async function newTeam (req, res) {
     index,
     show,
     create,
-    delete: deleteTeam
+    delete: deleteTeam,
+    editTeam
   }

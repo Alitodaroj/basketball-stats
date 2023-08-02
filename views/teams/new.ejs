@@ -8,7 +8,7 @@
     <%}%>
 
     <ul>
-      <% players.forEach(function(t) { %>
+      <% Players.forEach(function(t) { %>
         
         
         <li><%= t.playerName %></li>
@@ -18,12 +18,20 @@
         <form action="/players/<%= t._id %>?_method=DELETE" method="POST">
           <button type="submit">X</button>
         </form>
-        <% }); %>   
+        <% }); %> 
+      
         
-     
-    </ul> 
-
-    <h2>Add Stats</h2>
+        
+      </ul> 
+      <ul><% players.forEach(function(player) { %>
+        <li>
+          <%= player.teamName %>
+          <a href="/players/edit/<%= team._id %>">Edit</a>
+        </li>
+      <% }); %>
+      </ul>
+      
+      <h2>Add Stats</h2>
 <form action="/players" method="POST">
   
 <label>Name:</label>

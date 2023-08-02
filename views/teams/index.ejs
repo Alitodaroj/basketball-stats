@@ -1,22 +1,21 @@
 <%- include('../partials/header') %>
 
-  <ul>
-    <% teams.forEach(function(t) { %>
-      
-      
-      <li>
-        <a href="/teams/new">Details</a>
-          - 
-          <%= t.content %>
-         
-      </li>
-      <form action="/teams/<%= t._id %>?_method=DELETE" method="POST">
+<ul>
+  <% Players.forEach(function(t) { %>
+    <li>
+      <%= t.playerName %>
+      <li><%= t.points %> Points</li> 
+      <li><%= t.rebounds %> Rebounds</li>
+      <li><%= t.assists %> Assists</li>
+      <form action="/players/<%= t._id %>?_method=DELETE" method="POST">
         <button type="submit">X</button>
       </form>
-    <% }); %>
-  </ul> 
+      <a href="/players/edit/<%= t._id %>">Edit</a> 
+    </li>
+  <% }); %> 
+</ul>
   
-  
+
 
 
 <%- include('../partials/footer') %>

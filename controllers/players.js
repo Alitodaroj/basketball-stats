@@ -45,7 +45,7 @@ async function show(req, res) {
 async function editPlayer(req, res) {
   try {
     const player = await Player.findById(req.params.id);
-    res.render('players/edit', { title: 'Edit Player', player });
+    res.render('edit', { title: 'Edit Player', player });
   } catch (err) {
     console.error(err);
     res.redirect('/'); // Redirect to homepage or an error page
