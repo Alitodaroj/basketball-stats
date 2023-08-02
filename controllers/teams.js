@@ -1,5 +1,6 @@
 const Team = require('../models/teams');
 const teamsCtrl = require('../controllers/teams');
+const Players = require('../models/players');
 
 async function show(req, res) {
     const team = await Team.findById(req.params.id);
@@ -12,21 +13,35 @@ async function show(req, res) {
     try {
         await Team.create(req.body);
         const successMessage = 'Team created successfully!';
-        res.redirect('/teams');
+        res.redirect('/teams/new');
       } catch (err) {
         console.log(err);
-        res.render('statistics/show', { errorMsg: err.message });
+        res.render('/', { errorMsg: err.message });
       }
     }
 
   async function index(req, res) {
     const teams = await Team.find({});
-    res.render('statistics/index', { title: 'All Teams', teams });
+    res.render('teams/index', { title: 'All Teams', teams });
   }
   
 
-function newTeam (req, res) {
-    res.render('teams/new', { title: 'Add Teams', errorMsg: '' })
+async function newTeam (req, res) {
+  const players = await Players.find({})
+  res.render('teams/new', { title: 'Add Teams', errorMsg: '', players})
+  }
+
+  async function deleteTeam(req, res) {
+        try {
+      await Team.deleteOne({
+        _id:req.params.id
+      })
+      res.redirect('/teams');
+    }
+    catch(e){
+      console.log(e);
+      res.redirect('/teams');
+    }
   }
 
  
@@ -36,5 +51,6 @@ function newTeam (req, res) {
     new: newTeam, 
     index,
     show,
-    create
+    create,
+    delete: deleteTeam
   }

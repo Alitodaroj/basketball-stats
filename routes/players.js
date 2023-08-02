@@ -1,2 +1,9 @@
-router.post('/players/:id', ensureLoggedIn, playersCtrl.create);
-router.delete('/players/:id', ensureLoggedIn, playersCtrl.delete);
+var express = require('express');
+var router = express.Router();
+var ensureLoggedIn = require('../config/ensureLoggedIn');
+
+const playersCtrl = require('../controllers/players');
+
+router.post('/', ensureLoggedIn, playersCtrl.create);
+
+module.exports = router;

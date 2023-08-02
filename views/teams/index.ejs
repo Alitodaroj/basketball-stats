@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+  <ul>
+    <% teams.forEach(function(t) { %>
+      
+      
+      <li>
+        <a href="/teams/new">Details</a>
+          - 
+          <%= t.content %>
+         
+      </li>
+      <form action="/teams/<%= t._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
+    <% }); %>
+  </ul> 
+  
+
+
+<%- include('../partials/footer') %>

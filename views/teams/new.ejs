@@ -7,21 +7,36 @@
     </form>
     <%}%>
 
+    <ul>
+      <% players.forEach(function(t) { %>
+        
+        
+        <li><%= t.playerName %></li>
+        <li><%= t.points %> Points</li> 
+        <li><%= t.rebounds %> Rebounds</li>
+        <li><%= t.assists %> Assists</li>
+           
+        
+      <% }); %>
+    </ul> 
+
     <h2>Add Stats</h2>
-<form>
-<label>DATE:</label>
-<input type="date" name="DATE">
-<input type="submit" name="Submit">
+<form action="/players" method="POST">
+  
+<label>Name:</label>
+<input type="text" name="playerName">
 
 <label>Points</label>
-<input type="number" name="PTS">
+<input type="number" name="points">
 
 <label>Rebounds</label>
-<input type="number" name="REB">
+<input type="number" name="rebounds">
 
 <label>Assists</label>
-<input type="number" name="AST"
+<input type="number" name="assists">
 
+<input type="submit" name="Submit">
 
+</form>
 
 <%- include('../partials/footer') %>
