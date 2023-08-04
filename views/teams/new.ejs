@@ -7,49 +7,5 @@
     </form>
     <%}%>
 
-    <ul>
-      <% Players.forEach(function(t) { %>
-        
-        
-        <li><%= t.playerName %></li>
-        <li><%= t.points %> Points</li> 
-        <li><%= t.rebounds %> Rebounds</li>
-        <li><%= t.assists %> Assists</li>
-        <form action="/players/<%= t._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
-        </form>
-        <% }); %> 
-      
-        
-        
-      </ul> 
-      <ul><% players.forEach(function(player) { %>
-        <li>
-          <%= player.teamName %>
-          <a href="/players/edit/<%= team._id %>">Edit</a>
-        </li>
-      <% }); %>
-      </ul>
-      
-      <h2>Add Stats</h2>
-<form action="/players" method="POST">
-  
-<label>Name:</label>
-<input type="text" name="playerName">
-
-<label>Points</label>
-<input type="number" name="points">
-
-<label>Rebounds</label>
-<input type="number" name="rebounds">
-
-<label>Assists</label>
-<input type="number" name="assists">
-
-<input type="submit" name="Submit">
-
-</form>
-
-
-
+    
 <%- include('../partials/footer') %>

@@ -12,7 +12,9 @@ router.get('/:id', teamsCtrl.show);
 router.post('/', ensureLoggedIn, teamsCtrl.create);
 
 router.delete('/:id', teamsCtrl.delete)
-router.get('/edit/:id', teamsCtrl.editTeam);
+router.get('/:id/edit', teamsCtrl.editTeam);
+router.put('/:id', teamsCtrl.updateTeam)
+
 
 
 module.exports = router;

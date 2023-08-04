@@ -5,11 +5,10 @@ var ensureLoggedIn = require('../config/ensureLoggedIn');
 const playersCtrl = require('../controllers/players');
 
 router.post('/', ensureLoggedIn, playersCtrl.create);
+router.get('/edit/:id', playersCtrl.edit);
+router.post('/:id', playersCtrl.create)
 
-router.delete('/:id', playersCtrl.delete)
+router.get('/new/:id', playersCtrl.new);
 
-router.get('/:id', playersCtrl.show);
-router.get('/:id/edit', playersCtrl.editPlayer);
-router.post('/:id', playersCtrl.updatePlayer)
 
 module.exports = router;

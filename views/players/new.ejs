@@ -6,20 +6,20 @@
     <title>Edit Player</title>
 </head>
 <body>
-    <h1>Edit Player</h1>
-    <form action="/players/<%= player._id %>" method="POST">
+    <h1>Add Player</h1>
+    <form action="/players/<%= team._id %>" method="POST">
         
         <label for="playerName">Player Name:</label>
-        <input type="text" name="playerName" value="<%= player.playerName %>" required>
+        <input type="text" name="playerName" value="" required>
       
         <label for="points">Points:</label>
-        <input type="number" name="points" value="<%= player.points %>" required>
+        <input type="number" name="points" value="" required>
 
         <label for="rebounds">Rebounds:</label>
-        <input type="number" name="rebounds" value="<%= player.rebounds %>" required>
+        <input type="number" name="rebounds" value="" required>
 
         <label for="assists">Assists:</label>
-        <input type="number" name="assists" value="<%= player.assists %>" required>
+        <input type="number" name="assists" value="" required>
       
         <button type="submit">Update</button>
     </form>

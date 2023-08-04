@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
   res.redirect('/teams');
 });
 
-
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?
@@ -21,14 +20,14 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/teams',
+    successRedirect: '/teams/index',
     failureRedirect: '/'
   }
 ));
 
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/teams');
+    res.redirect('/teams/index');
   });
 })
 

@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+    
+  <li><%= team.content %></li>
+  
+  <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
+    <input type="text" name="content" value="<%= team.teamName %>" required>
+    <button type="submit">Update</button>
+  </form>
+
+  <% team.players.forEach(function(t) { %>
+    <%= t.playerName %>
+    <%= t.points %> 
+    <%= t.rebounds %>
+    <%= t.assists %>
+  <% }) %> 
+
+  <a href="/players/new/<%= team.id %>" >Add Player</a>
+<%- include('../partials/footer') %>

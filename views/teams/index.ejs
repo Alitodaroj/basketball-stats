@@ -1,20 +1,20 @@
 <%- include('../partials/header') %>
-
+<a href="/teams/new" <%- title === 'Add Team' ? 'class="active"' : '' %>>ADD TEAM</a>
 <ul>
-  <% Players.forEach(function(t) { %>
+  <% teams.forEach(function(t) { %>
     <li>
-      <%= t.playerName %>
-      <li><%= t.points %> Points</li> 
-      <li><%= t.rebounds %> Rebounds</li>
-      <li><%= t.assists %> Assists</li>
-      <form action="/players/<%= t._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-      </form>
-      <a href="/players/edit/<%= t._id %>">Edit</a> 
+      <a href='/teams/<%= t._id %>'><%= t.content %></a>
+        <% if (user) { %>
+          <form action="/teams/<%= t._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+          </form>
+        <% } %>
+      
+      
     </li>
   <% }); %> 
 </ul>
-  
+
 
 
 
