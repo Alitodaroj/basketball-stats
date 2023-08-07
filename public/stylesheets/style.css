@@ -1,6 +1,9 @@
 body {
   padding: 5px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 14px'Playfair Display', serif;
+  font-size: 30px;
+  color: blue;
+  background-image: url(https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1490&q=80;)
 }
 
 a {
@@ -11,16 +14,26 @@ a {
 .login {
   display: flex;
   justify-content: start;
-  flex-direction: row,
-
+  flex-direction: row;
+  align-items: center
 }
 
 img {
   height: 50px;
   width: 50px;
-  
+  background-repeat: repeat-x 10;
 }
 
 h1 {
   display: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+p {
+  font-size: 5vmin;
 }
